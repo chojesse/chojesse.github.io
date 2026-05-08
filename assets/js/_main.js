@@ -51,21 +51,34 @@ $(document).ready(function () {
 
   setLightTheme();
 
-  // Enable the sticky footer
-  var bumpIt = function () {
-    $("body").css("padding-bottom", "0");
-    $("body").css("margin-bottom", $(".page__footer").outerHeight(true));
-  }
-  $(window).resize(function () {
+  var updateFooterPosition = function () {
+    var $footer = $(".page__footer");
+
+    if (!$footer.length) {
+      return;
+    }
+
+    $footer.removeClass("page__footer--sticky");
+    $("body").css("padding-bottom", "");
+
+    if (document.documentElement.scrollHeight <= window.innerHeight) {
+      $footer.addClass("page__footer--sticky");
+      $("body").css("padding-bottom", $footer.outerHeight(true));
+    }
+  };
+
+  $(window).on("resize", function () {
     didResize = true;
   });
+  $(window).on("load", updateFooterPosition);
   setInterval(function () {
     if (didResize) {
       didResize = false;
-      bumpIt();
-    }}, 250);
+      updateFooterPosition();
+    }
+  }, 250);
   var didResize = false;
-  bumpIt();
+  updateFooterPosition();
 
   // FitVids init
   fitvids();

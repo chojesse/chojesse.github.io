@@ -56,6 +56,13 @@
   }
 }
 
+.page__footer--sticky {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+}
+
 .page__footer-copyright {
   width: 100%;
   font-family: $global-font-family;
