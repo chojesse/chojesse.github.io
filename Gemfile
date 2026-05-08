@@ -14,3 +14,4 @@ gem 'connection_pool', '2.5.0'
 gem "csv"
 gem "base64"
 gem "bigdecimal"
+gem 'liquid', '~> 4.0', '>= 4.0.4'
