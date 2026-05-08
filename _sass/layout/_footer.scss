@@ -26,11 +26,13 @@
 
   footer {
     @include clearfix;
+    align-items: center;
+    display: flex;
+    min-height: 4rem;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 1em;
     max-width: 100%;
-    padding: 0 1em 1em;
+    padding: 1em;
 
     @include breakpoint($x-large) {
       max-width: $x-large;
@@ -55,8 +57,10 @@
 }
 
 .page__footer-copyright {
+  width: 100%;
   font-family: $global-font-family;
   font-size: $type-size-7;
+  line-height: 1.5;
 }
 
 .page__footer-follow {
